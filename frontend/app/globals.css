@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  color-scheme:light;
+  --app:#f7f7fc;
+  --panel:#ffffff;
+  --main:#1f1d2b;
+  --muted:#77738a;
+  --line:#e8e6f0;
+  --soft:#f5f3fb;
+  --purple:#6d5ce7;
+  --purple-2:#8b5cf6;
+  --blue:#4f8cff;
+  --pink:#ec6aa5;
+  --mint:#35c7a5;
+}
+:root.dark{
+  color-scheme:dark;
+  --app:#0e0f15;
+  --panel:#171821;
+  --main:#f4f2fa;
+  --muted:#aaa6b9;
+  --line:#2a2b38;
+  --soft:#20212d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--app);color:var(--main);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,textarea,select{font:inherit}
+input,textarea,select{color:var(--main)}
+button{cursor:pointer}
+::selection{background:#ddd7ff;color:#332a72}
+
+/* polished shared surfaces */
+.bg-app{background:var(--app)!important}.bg-panel{background:var(--panel)!important}.text-main{color:var(--main)!important}.text-muted{color:var(--muted)!important}.border-line{border-color:var(--line)!important}.bg-soft{background:var(--soft)!important}.divide-line> :not([hidden])~:not([hidden]){border-color:var(--line)!important}
+.glass{box-shadow:0 16px 50px rgba(48,35,99,.10);backdrop-filter:blur(14px)}
+.brand-gradient{background:linear-gradient(135deg,#6657e8 0%,#805be8 42%,#e96ba6 100%)}
+.hero-gradient{background:radial-gradient(circle at 10% 10%,rgba(124,92,246,.22),transparent 32%),radial-gradient(circle at 90% 15%,rgba(236,106,165,.18),transparent 30%),linear-gradient(135deg,#f9f7ff,#fff8fb 58%,#f5fbff)}
+.dark .hero-gradient{background:radial-gradient(circle at 10% 10%,rgba(124,92,246,.20),transparent 32%),radial-gradient(circle at 90% 15%,rgba(236,106,165,.14),transparent 30%),linear-gradient(135deg,#171624,#18151d 58%,#111820)}
+.gradient-text{background:linear-gradient(90deg,#6657e8,#a052db,#e86ca4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.soft-gradient{background:linear-gradient(135deg,rgba(109,92,231,.10),rgba(236,106,165,.08))}
+
+.scrollbar::-webkit-scrollbar{width:7px}.scrollbar::-webkit-scrollbar-thumb{background:#d8d4e5;border-radius:99px}.dark .scrollbar::-webkit-scrollbar-thumb{background:#3a3948}
+.highlight{background:#fff0a8;color:#201f27;border-radius:3px;padding:0 2px}.transcript-row{transition:.15s ease}.transcript-row:hover{background:var(--soft)}.active-line{background:#f0edff;border-left:3px solid #6c5ce7}
+
+/* make common hard-coded light controls dark-mode safe */
+.dark .bg-white{background:var(--panel)!important}.dark .bg-\[\#faf9fc\]{background:var(--app)!important}.dark .bg-\[\#f8f7fb\],.dark .bg-\[\#f7f5ff\],.dark .bg-\[\#fbfaff\]{background:var(--soft)!important}
+.dark .text-\[\#201f27\],.dark .text-\[\#45414d\],.dark .text-\[\#4c4954\],.dark .text-\[\#504d58\],.dark .text-\[\#484451\]{color:var(--main)!important}
+.dark .border-\[\#ebe8f1\],.dark .border-\[\#eeeaf3\],.dark .border-\[\#e9e6ef\],.dark .border-\[\#e5e2eb\]{border-color:var(--line)!important}
+.dark .hover\:bg-soft:hover{background:var(--soft)!important}
+
+/* Auth */
+.auth-shell{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;background:var(--app)}
+.auth-art{position:relative;overflow:hidden;background:linear-gradient(145deg,#5748d9 0%,#7657e8 42%,#d65c9b 100%);color:white}
+.auth-art:before,.auth-art:after{content:"";position:absolute;border-radius:999px;filter:blur(2px)}
+.auth-art:before{width:420px;height:420px;right:-120px;top:-90px;background:rgba(255,255,255,.14)}
+.auth-art:after{width:300px;height:300px;left:-110px;bottom:-80px;background:rgba(84,220,190,.18)}
+.auth-grid{position:absolute;inset:0;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,black,transparent)}
+.auth-card{width:min(460px,calc(100vw - 40px));border:1px solid var(--line);background:var(--panel);box-shadow:0 30px 90px rgba(38,28,83,.15);border-radius:28px;padding:36px}
+.auth-input{width:100%;border:1px solid var(--line);background:var(--soft);border-radius:14px;padding:13px 14px;outline:none;transition:.2s}.auth-input:focus{border-color:#9a8df1;box-shadow:0 0 0 4px rgba(109,92,231,.12)}
+
+@media(max-width:900px){.auth-shell{grid-template-columns:1fr}.auth-art{display:none}.auth-card{padding:28px}}
