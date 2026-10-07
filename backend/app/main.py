@@ -8,7 +8,7 @@ from .models import Meeting, Participant, TranscriptSegment, Summary, ActionItem
 from .schemas import MeetingCreate, MeetingUpdate, ActionItemIn, TranscriptUpdate, LiveRoomCreate, RoomJoin, RoomMessageIn, RoomEnd
 
 app = FastAPI(title="Fireflies Clone API", version="1.0.0")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=False, allow_methods=["*"], allow_headers=["*"])
 Base.metadata.create_all(bind=engine)
 
 def seed(db: Session):
